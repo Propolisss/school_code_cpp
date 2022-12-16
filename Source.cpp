@@ -2,60 +2,24 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-
+#include <cmath>
 
 int main()
 {
-	std::string a{ "ababbababbaa" };
-	int q = 1;
-	int i = 1;
-	while (q < 4)
-	{
-		auto c = a[i - 1];
-		if (q == 2)
-		{
-			if (c == 'a')
-			{
-				a[i - 1] = 'b';
-			}
-			else
-			{
-				q = 1;
-			}
-		}
-		if (q == 3)
-		{
-			if (c == 'b')
-			{
-				a[i - 1] = 'a';
-			}
-			else
-			{
-				q = 1;
-			}
-		}
-		if (q == 1)
-		{
-			a.erase(i, 1);
-			i--;
-			if (c == 'a')
-			{
-				q = 3;
-			}
-			if (c == 'b')
-			{
-				q = 2;
-			}
-		}
-		i++;
-		if (i > a.length())
-		{
-			q = 4;
-		}
-		std::cout << a << '\n';
-	}
+	std::string st;
 
-	std::cout << a << '\n';
+	std::cin >> st;
+
+	for (size_t i = 2; i < st.length(); i += 3)
+	{	
+		auto n1 = st[i - 2] - '0';
+		auto n2 = st[i - 1] - '0';
+		auto control = st[i] - '0';
+		auto summ = n1 + n2;
+		auto s = n1 * 10 + n2;
+
+		std::cout << char(s);
+	}
 
 	return 0;
 }
